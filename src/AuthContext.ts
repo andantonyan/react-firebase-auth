@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import { createContext, useContext } from 'react';
 import { ParsedToken, User } from 'firebase/auth';
 
 export interface AuthContextData {
@@ -14,3 +14,5 @@ export const AuthContext = createContext<AuthContextData>({
   tokenData: {},
   initialized: false,
 });
+
+export const useAuthContext = () => useContext(AuthContext);

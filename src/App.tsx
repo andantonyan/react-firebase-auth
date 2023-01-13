@@ -1,20 +1,13 @@
 import React from 'react';
+
 import './App.css';
-import { useAuth } from './useAuth';
-import Login from './Login';
-import Dashboard from './Dashboard';
-import { AuthContext } from './AuthContext';
+import { RouteSwitcher } from './RouteSwitcher';
+import { AuthProvider } from './AuthProvider';
 
 function App() {
-  const {user, token, tokenData} = useAuth();
-  const value = {user, token, tokenData, initialized: user !== null};
-
-  return <AuthContext.Provider value={value}>
-    <>
-      <h1>App</h1>
-      {user?.isAnonymous ? <Login/> : <Dashboard/>}
-    </>
-  </AuthContext.Provider>;
+  return <AuthProvider>
+    <RouteSwitcher/>
+  </AuthProvider>;
 }
 
 export default App;

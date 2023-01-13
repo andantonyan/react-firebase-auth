@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { getAuth, signOut } from 'firebase/auth';
-import { AuthContext } from './AuthContext';
+import { useAuthContext } from './AuthContext';
 
 function RenderAuthData() {
-  const context = useContext(AuthContext);
+  const context = useAuthContext();
 
   return <>
     <br/>
