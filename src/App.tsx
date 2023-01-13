@@ -3,18 +3,18 @@ import './App.css';
 import { useAuth } from './useAuth';
 import Login from './Login';
 import Dashboard from './Dashboard';
-import { AuthProviderContext } from './AuthProviderContext';
+import { AuthContext } from './AuthContext';
 
 function App() {
   const {user, token, tokenData} = useAuth();
   const value = {user, token, tokenData, initialized: user !== null};
 
-  return <AuthProviderContext.Provider value={value}>
+  return <AuthContext.Provider value={value}>
     <>
       <h1>App</h1>
       {user?.isAnonymous ? <Login/> : <Dashboard/>}
     </>
-  </AuthProviderContext.Provider>;
+  </AuthContext.Provider>;
 }
 
 export default App;
